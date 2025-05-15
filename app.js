@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const authroutes = require('./routes/authroutes');
 const blogroutes = require('./routes/blogroutes');
+const requireAuth = require('./middleware/authmiddleware');  // Import the requireAuth middleware
+const path = require('path');
 
 mongoose.connect('mongodb://localhost:27017/blogsmith')
   .then(() => {
@@ -13,16 +15,22 @@ mongoose.connect('mongodb://localhost:27017/blogsmith')
   });
 
 const app = express();
-//this is app.js
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use(express.static('public', { extensions: ['js', 'css', 'jpg', 'png', 'gif'] })); // Serve static files from the 'public' folder
 
 // Routes
 app.use('/api/auth', authroutes);
 app.use('/api/blogs', blogroutes);
+
+// Protected Dashboard Route
+app.get('/dashboard', requireAuth, (req, res) => {
+  // Serve the dashboard page only if authenticated
+  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
 
 const PORT = 5000; // You can change this to any port you prefer
 app.listen(PORT, () => {

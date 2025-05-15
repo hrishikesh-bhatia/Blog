@@ -1,23 +1,138 @@
-public/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Blogsmith - Home</title>
-  <link rel="stylesheet" href="/css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogsmith - Landing Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e2e2;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .login-btn {
+      background: transparent;
+      border: 1px solid #333;
+      color: #333;
+    }
+
+    .login-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .register-btn {
+      background: #111;
+      color: #fff;
+    }
+
+    .register-btn:hover {
+      background: #444;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .nav-buttons button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <h1>Welcome to Blogsmith</h1>
-    <nav>
-      <a href="/login.html">Login</a>
-      <a href="/register.html">Register</a>
-    </nav>
+    <div class="logo">Blogsmith</div>
+    <div class="nav-buttons">
+      <button class="login-btn" onclick="redirectToLogin()">Login</button>
+      <button class="register-btn" onclick="redirectToRegister()">Register</button>
+    </div>
   </header>
+
   <main>
-    <section class="intro">
-      <p>Write. Share. Inspire. Start blogging today.</p>
-    </section>
+    <div class="hero">
+      <h1>Welcome to Blogsmith</h1>
+      <p>Your all-in-one platform to read, write, and share powerful blogs.</p>
+    </div>
   </main>
+
+  <script>
+    function redirectToLogin() {
+      window.location.href = "/login.html";
+    }
+
+    function redirectToRegister() {
+      window.location.href = "/register.html";
+    }
+  </script>
+
 </body>
 </html>

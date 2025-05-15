@@ -5,7 +5,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const requireAuth = async (req, res, next) => {
   try {
-    
+    // console.log('Checking authentication...');
     const { logintoken } = req.cookies;
 
     

@@ -62,7 +62,8 @@ const loginUser = async (req,res) => {
         "Set-Cookie",
         cookie.serialize("logintoken", String(token), {
             maxAge: 60 * 60 * 24 * 7,
-            httpOnly: true
+            httpOnly: true,
+            path: '/'
         }),
     );
 
@@ -76,14 +77,19 @@ const loginUser = async (req,res) => {
   }
 }
 const logoutUser = async (req,res) =>{
+    // console.log('Logout endpoint hit');
+
     try{
       res.setHeader(
-        'set-Cookie',
+        'Set-Cookie',
         cookie.serialize('logintoken','',{
           maxAge: 0,
-          httpOnly: true
+          httpOnly: true ,
+          path: '/'
         })
       )
+      res.status(200).json({ message: 'Logged out successfully' });
+
     } catch(error) {
       console.log('Logout Error', error)
       res.status(500).json({ message: 'server error during logout'})
