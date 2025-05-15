@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/blogsmith')
   });
 
 const app = express();
-
+//this is app.js
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
