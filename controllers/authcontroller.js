@@ -1,4 +1,5 @@
 //For handling user Registration , login , logout , etc.
+const cookie = require('cookie');
 const User = require('../models/user.js');
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
@@ -66,7 +67,8 @@ const loginUser = async (req,res) => {
     );
 
     res.status(200).json({
-        msg: "Welcome to app"
+      success: true,
+      message: "Welcome to app"
     })
     } catch (error) {
     console.error('Login Error:', error);
