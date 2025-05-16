@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write a New Blog Post | BlogSmith</title>
+  <meta name="description" content="Create and publish your next great article on BlogSmith." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/write-style.css">
+  <style>
+    .modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <div class="navbar-logo">
+            <a href="/" class="logo-text">BlogSmith</a>
+          </div>
+
+          <div class="navbar-menu">
+            <a href="/dashboard.html" class="navbar-link">Home</a>
+            <a href="/dashboard.html#section2" class="navbar-link">Articles</a>
+            <a href="/dashboard.html#section3" class="navbar-link">Categories</a>
+            <a href="/dashboard.html#section4" class="navbar-link">About</a>
+          </div>
+
+          <div class="navbar-actions">
+            <button class="button button-primary button-sm" id="logoutBtn">Logout</button>
+          </div>
+
+          <div class="mobile-menu-toggle">
+            <button aria-label="Open menu" class="icon-button" id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+          <a href="index.html" class="mobile-menu-link">Home</a>
+          <a href="#" class="mobile-menu-link">Articles</a>
+          <a href="#" class="mobile-menu-link">Categories</a>
+          <a href="#" class="mobile-menu-link">About</a>
+          <div class="mobile-menu-actions">
+            <a href="write.html" class="button button-primary button-sm button-full">Write</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="write-main">
+      <div class="container write-container">
+        <div class="write-header">
+          <h1 class="write-title">Create a New Post</h1>
+          <div class="write-actions">
+            <!-- <button class="button button-outline button-sm" id="save-draft-btn">Save Draft</button> -->
+            <!-- <button class="button button-primary button-sm" id="publish-btn">Publish</button> -->
+          </div>
+        </div>
+
+        <form class="write-form" id="blog-form">
+          <div class="form-group">
+            <input type="text" id="post-title" name="post-title" class="input title-input"
+              placeholder="Enter post title..." required />
+          </div>
+
+          <div class="form-group">
+            <!-- <div class="category-selector">
+                <label for="category" class="form-label">Category:</label>
+                <select id="category" name="category" class="input select-input" required>
+                  <option value="" disabled selected>Select a category</option>
+                  <option value="technology">Technology</option>
+                  <option value="lifestyle">Lifestyle</option>
+                  <option value="culture">Culture</option>
+                  <option value="business">Business</option>
+                  <option value="events">Events</option>
+                </select>
+              </div> -->
+
+            <div class="featured-image">
+              <label for="featured-image" class="form-label">Featured Image:</label>
+              <div class="file-input-wrapper">
+                <input type="file" id="featured-image" name="featured-image" class="file-input" accept="image/*" />
+                <div class="file-preview" id="image-preview">
+                  <div class="file-preview-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <span>Upload Featured Image</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <div class="editor-container">
+              <textarea id="post-content" name="post-content" class="editor-textarea"
+                placeholder="Start writing your blog post..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="tags-input-container">
+              <label for="tags-input" class="form-label">Tags:</label>
+              <div class="tags-input-wrapper">
+                <input type="text" id="tags-input" class="input tags-input"
+                  placeholder="Add tags separated by commas..." />
+              </div>
+              <div class="tags-preview" id="tags-preview"></div>
+            </div>
+          </div>
+
+          <div class="form-group form-actions">
+            <div class="form-buttons">
+              <button type="button" class="button button-outline" id="preview-btn">Preview</button>
+              <button type="button" class="button button-outline" id="cancel-btn">Cancel</button>
+              <button type="button" class="button button-primary" id="publish-btn">Publish</button>
+
+              <!-- Preview Modal -->
+              
+            </div>
+            <div id="preview-modal" class="modal">
+                <div class="modal-content">
+                  <span id="close-modal" class="close">&times;</span>
+                  <h2 id="preview-title"></h2>
+                  <div id="preview-content"></div>
+                </div>
+              </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2025 BlogSmith. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#" class="footer-legal-link">Privacy Policy</a>
+            <a href="#" class="footer-legal-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- <div class="modal" id="publish-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Publish Post</h3>
+          <button class="modal-close" id="close-modal">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to publish this post?</p>
+          <p>Once published, it will be visible to all readers.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="button button-outline" id="cancel-publish">Cancel</button>
+          <button class="button button-primary" id="confirm-publish">Publish</button>
+        </div>
+      </div>
+    </div> -->
+
+  <script src="newblog.js" defer></script>
+</body>
+
+</html>
