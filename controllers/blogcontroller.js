@@ -26,7 +26,7 @@ const createBlog = async (req, res) => {
 const getBlog = async (req,res) =>{
     try{
         const allblogs = await Blog.find({})
-        res.json({allblogs})
+        res.json({data : allblogs})
     }
     catch ( error ){
         res.status(500).json({message : 'Error providing all blogs'})
