@@ -21,7 +21,7 @@ document.getElementById('publish-btn')?.addEventListener('click', async () => {
 
     if (response.ok) {
       alert('Blog published successfully!');
-      window.location.href = '/dashboard.html'; // or wherever
+      window.location.href = '/dashboard'; // or wherever
     } else {
       alert(data.message || 'Something went wrong!');
     }
@@ -52,4 +52,9 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
+document.getElementById('cancel-btn').addEventListener('click', () => {
+  window.location.href = '/dashboard';
+});
+
 

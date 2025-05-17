@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public', { extensions: ['js', 'css', 'jpg', 'png', 'gif'] })); // Serve static files from the 'public' folder
+app.use(express.static('public'));  // Serve static files from the 'public' folder
 
 // Routes
 app.use('/api/auth', authroutes);
@@ -31,7 +31,12 @@ app.get('/dashboard', requireAuth, (req, res) => {
   // Serve the dashboard page only if authenticated
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
-
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+app.get('/newblog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'newblog.html'));
+});
 const PORT = 5000; // You can change this to any port you prefer
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

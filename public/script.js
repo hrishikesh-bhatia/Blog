@@ -17,7 +17,7 @@ document.getElementById('logoutBtn')?.addEventListener('click', async () => {
 
 // Redirect to new blog page
 document.getElementById('write-blog-btn')?.addEventListener('click', () => {
-  window.location.href = '/newblog.html';
+  window.location.href = '/newblog';
 });
 
 
