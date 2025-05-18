@@ -7,7 +7,7 @@ const blogSchema = new mongoose.Schema({
   image: {type: String, default:"https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"},
   category: {type: String, default: "Work and Life"},
   readTime: {type: String, default: "8 min read"},
-  author: {type: String, default: "Alex Morgan"},
+  author: {type: String },
   date: {type: String, default: "May10, 2025"}
 
 

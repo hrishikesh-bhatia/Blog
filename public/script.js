@@ -19,6 +19,9 @@ document.getElementById('logoutBtn')?.addEventListener('click', async () => {
 document.getElementById('write-blog-btn')?.addEventListener('click', () => {
   window.location.href = '/newblog';
 });
+document.getElementById('read-blog-btn')?.addEventListener('click', () => {
+  window.location.href = '/articles';
+});
 
 
 

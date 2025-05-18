@@ -1,9 +1,10 @@
 document.getElementById('publish-btn')?.addEventListener('click', async () => {
   const title = document.getElementById('post-title').value.trim();
   const content = document.getElementById('post-content').value.trim();
-
-  if (!title || !content) {
-    alert('Title and content cannot be empty.');
+  const category = document.getElementById('category').value.trim();
+  const image = document.getElementById('image-link').value.trim();
+  if (!title || !content || !category) {
+    alert('Title and content and category cannot be empty.');
     return;
   }
 
@@ -14,7 +15,7 @@ document.getElementById('publish-btn')?.addEventListener('click', async () => {
         'Content-Type': 'application/json',
       },
       credentials: 'include', // if you're using cookies/auth
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ title, content , category , image}),
     });
 
     const data = await response.json();

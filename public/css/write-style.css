@@ -177,8 +177,16 @@
   outline: none;
   resize: vertical;
 }
-
+/* Image Input */
+.image-input-wrapper {
+  position: relative;
+  
+}
+.image-input-wrapper input{
+  width: 100%;
+}
 /* Tags Input */
+
 .tags-input-wrapper {
   position: relative;
 }
@@ -282,8 +290,6 @@
   background-color: var(--background);
   border-radius: var(--radius);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  width: 90%;
-  max-width: 500px;
   overflow: hidden;
 }
 

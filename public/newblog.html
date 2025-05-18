@@ -14,37 +14,36 @@
   <link rel="stylesheet" href="./css/write-style.css">
   <style>
     .modal {
-  display: none; 
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
-  width: 80%;
-  border-radius: 10px;
-}
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      width: 50%;
+      border-radius: 10px;
+    }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
 
-.close:hover {
-  color: #000;
-}
-
+    .close:hover {
+      color: #000;
+    }
   </style>
 </head>
 
@@ -59,10 +58,10 @@
           </div>
 
           <div class="navbar-menu">
-            <a href="/dashboard.html" class="navbar-link">Home</a>
-            <a href="/dashboard.html#section2" class="navbar-link">Articles</a>
-            <a href="/dashboard.html#section3" class="navbar-link">Categories</a>
-            <a href="/dashboard.html#section4" class="navbar-link">About</a>
+            <a href="/dashboard" class="navbar-link">Home</a>
+            <a href="/dashboard#section2" class="navbar-link">Articles</a>
+            <a href="/dashboard#section3" class="navbar-link">Categories</a>
+            <a href="/dashboard#section4" class="navbar-link">About</a>
           </div>
 
           <div class="navbar-actions">
@@ -112,7 +111,7 @@
           </div>
 
           <div class="form-group">
-            <!-- <div class="category-selector">
+            <div class="category-selector">
                 <label for="category" class="form-label">Category:</label>
                 <select id="category" name="category" class="input select-input" required>
                   <option value="" disabled selected>Select a category</option>
@@ -122,9 +121,9 @@
                   <option value="business">Business</option>
                   <option value="events">Events</option>
                 </select>
-              </div> -->
+              </div>
 
-            <div class="featured-image">
+            <!-- <div class="featured-image">
               <label for="featured-image" class="form-label">Featured Image:</label>
               <div class="file-input-wrapper">
                 <input type="file" id="featured-image" name="featured-image" class="file-input" accept="image/*" />
@@ -141,11 +140,18 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
 
           </div>
-
+          <div class="form-group">
+            <div class="tags-input-container">
+              <label for="image-link" class="form-label">Cover Image Link:</label>
+              <div class="image-input-wrapper">
+                <input type="text" id="image-link" class="input tags-input" placeholder="Enter image URL here..." />
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <div class="editor-container">
               <textarea id="post-content" name="post-content" class="editor-textarea"
@@ -153,7 +159,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="tags-input-container">
               <label for="tags-input" class="form-label">Tags:</label>
               <div class="tags-input-wrapper">
@@ -162,7 +168,7 @@
               </div>
               <div class="tags-preview" id="tags-preview"></div>
             </div>
-          </div>
+          </div> -->
 
           <div class="form-group form-actions">
             <div class="form-buttons">
@@ -171,15 +177,15 @@
               <button type="button" class="button button-primary" id="publish-btn">Publish</button>
 
               <!-- Preview Modal -->
-              
+
             </div>
             <div id="preview-modal" class="modal">
-                <div class="modal-content">
-                  <span id="close-modal" class="close">&times;</span>
-                  <h2 id="preview-title"></h2>
-                  <div id="preview-content"></div>
-                </div>
+              <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2 id="preview-title"></h2>
+                <div id="preview-content"></div>
               </div>
+            </div>
           </div>
         </form>
       </div>
