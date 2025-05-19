@@ -101,6 +101,12 @@
     .close:hover {
       color: #000;
     }
+    .active-category {
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
   </style>
 </head>
 
@@ -175,20 +181,22 @@
               Explore our complete collection of thought-provoking articles and stories
             </p>
           </div>
-
+               <!-- class="px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors" -->
           <!-- Filter and Sort Controls -->
           <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2" id="category-buttons">
+              <button data-category="All">All</button>
+                 <button data-category="technology">Technology</button>
+              <!-- <button
+                 onclick="filterBlogs('technology')">Technology</button> -->
               <button
-                class="px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">All</button>
+                 data-category="lifestyle">Lifestyle</button>
               <button
-                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors">Technology</button>
+                 data-category="business">Business</button>
               <button
-                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors">Lifestyle</button>
+                 data-category="culture">Culture</button>
               <button
-                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors">Business</button>
-              <button
-                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors">Culture</button>
+                 data-category="events">Events</button>
             </div>
             <!-- <div class="flex items-center gap-2">
               <label for="sort" class="text-sm text-gray-500">Sort by:</label>

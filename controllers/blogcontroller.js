@@ -55,7 +55,15 @@ const getBlogById = async (req, res) => {
         res.status(500).json({ message: 'Error getting the blog' })
     }
 }
-
+const getBlogByCategory = async(req,res) => {
+    try {
+    const {category} = req.params;
+    const blogs = await Blog.find(category === "All" ? {} : { category }); // If All, return all blogs
+    res.json({ success: true, data: blogs });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to fetch blogs by category" });
+  }
+}
 const updateBlog = async (req, res) => {
     try {
         const { id } = req.params
@@ -99,4 +107,4 @@ const deleteBlog = async (req, res) => {
     }
 }
 
-module.exports = { createBlog, getBlog, getBlogById, updateBlog, deleteBlog }
+module.exports = { createBlog, getBlog, getBlogById,getBlogByCategory, updateBlog, deleteBlog }
