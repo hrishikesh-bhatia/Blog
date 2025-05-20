@@ -101,12 +101,12 @@
     .close:hover {
       color: #000;
     }
-    .active-category {
-  background-color: #000;
-  color: #fff;
-  border-radius: 5px;
-}
 
+    .active-category {
+      background-color: #000;
+      color: #fff;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -117,13 +117,13 @@
       <div class="container">
         <div class="navbar-content">
           <div class="navbar-logo">
-            <a href="/" class="logo-text">BlogVista</a>
+            <h2 class="logo-text">BlogSmith</h2>
           </div>
 
           <div class="navbar-menu">
             <a href="dashboard" class="navbar-link">Home</a>
-            <a href="#sec1" class="navbar-link">Articles</a>
-            <a href="#" class="navbar-link">Categories</a>
+            <a href="#sec1" class="navbar-link" style="color: black;">Articles</a>
+            <a href="explore" class="navbar-link">Explore</a>
             <a href="#" class="navbar-link">About</a>
           </div>
 
@@ -137,36 +137,6 @@
             </button>
             <button class="button button-primary button-sm" id="logoutBtn">Logout</button>
           </div>
-
-          <div class="mobile-menu-toggle">
-            <button aria-label="Open menu" class="icon-button" id="menu-toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                <line x1="4" x2="20" y1="12" y2="12"></line>
-                <line x1="4" x2="20" y1="6" y2="6"></line>
-                <line x1="4" x2="20" y1="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-content">
-          <a href="index.html" class="mobile-menu-link">Home</a>
-          <a href="articles.html" class="mobile-menu-link">Articles</a>
-          <a href="#" class="mobile-menu-link">Categories</a>
-          <a href="#" class="mobile-menu-link">About</a>
-          <div class="mobile-menu-actions">
-            <button aria-label="Search" class="icon-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </svg>
-            </button>
-            <a href="write.html" class="button button-primary button-sm button-full">Write</a>
-          </div>
         </div>
       </div>
     </nav>
@@ -176,27 +146,23 @@
       <section class="articles-header py-16 bg-white">
         <div class="container max-w-7xl mx-auto px-4">
           <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">All Articles</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Articles</h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
               Explore our complete collection of thought-provoking articles and stories
             </p>
           </div>
-               <!-- class="px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors" -->
+          <!-- class="px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors" -->
           <!-- Filter and Sort Controls -->
           <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
             <div class="flex flex-wrap gap-2" id="category-buttons">
               <button data-category="All">All</button>
-                 <button data-category="technology">Technology</button>
+              <button data-category="technology">Technology</button>
               <!-- <button
                  onclick="filterBlogs('technology')">Technology</button> -->
-              <button
-                 data-category="lifestyle">Lifestyle</button>
-              <button
-                 data-category="business">Business</button>
-              <button
-                 data-category="culture">Culture</button>
-              <button
-                 data-category="events">Events</button>
+              <button data-category="lifestyle">Lifestyle</button>
+              <button data-category="business">Business</button>
+              <button data-category="culture">Culture</button>
+              <button data-category="events">Events</button>
             </div>
             <!-- <div class="flex items-center gap-2">
               <label for="sort" class="text-sm text-gray-500">Sort by:</label>

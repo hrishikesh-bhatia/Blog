@@ -41,6 +41,10 @@ app.get('/articles', requireAuth, (req, res) => {
   // Serve the dashboard page only if authenticated
   res.sendFile(path.join(__dirname, 'public', 'allblogs.html'));
 });
+app.get('/explore', requireAuth, (req, res) => {
+  // Serve the dashboard page only if authenticated
+  res.sendFile(path.join(__dirname, 'public', 'explore.html'));
+});
 const PORT = 5000; // You can change this to any port you prefer
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
