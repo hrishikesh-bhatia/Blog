@@ -14,7 +14,7 @@ document.getElementById('publish-btn')?.addEventListener('click', async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include', // if you're using cookies/auth
+      credentials: 'include', 
       body: JSON.stringify({ title, content , category , image}),
     });
 
@@ -22,7 +22,7 @@ document.getElementById('publish-btn')?.addEventListener('click', async () => {
 
     if (response.ok) {
       alert('Blog published successfully!');
-      window.location.href = '/dashboard'; // or wherever
+      window.location.href = '/dashboard'; 
     } else {
       alert(data.message || 'Something went wrong!');
     }
@@ -46,7 +46,7 @@ document.getElementById('close-modal')?.addEventListener('click', () => {
   document.getElementById('preview-modal').style.display = 'none';
 });
 
-// Optional: Close modal when clicking outside the modal content
+//Close modal when clicking outside the modal content
 window.addEventListener('click', (e) => {
   const modal = document.getElementById('preview-modal');
   if (e.target === modal) {

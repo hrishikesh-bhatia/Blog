@@ -58,50 +58,24 @@
           </div>
 
           <div class="navbar-menu">
-            <a href="/dashboard" class="navbar-link">Home</a>
+            <a href="dashboard" class="navbar-link">Home</a>
             <a href="articles" class="navbar-link">Articles</a>
             <a href="explore" class="navbar-link">Explore</a>
-            <a href="/dashboard#section4" class="navbar-link">About</a>
           </div>
 
           <div class="navbar-actions">
             <button class="button button-primary button-sm" id="logoutBtn">Logout</button>
           </div>
 
-          <div class="mobile-menu-toggle">
-            <button aria-label="Open menu" class="icon-button" id="menu-toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                <line x1="4" x2="20" y1="12" y2="12"></line>
-                <line x1="4" x2="20" y1="6" y2="6"></line>
-                <line x1="4" x2="20" y1="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
 
-      <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-content">
-          <a href="index.html" class="mobile-menu-link">Home</a>
-          <a href="#" class="mobile-menu-link">Articles</a>
-          <a href="#" class="mobile-menu-link">Categories</a>
-          <a href="#" class="mobile-menu-link">About</a>
-          <div class="mobile-menu-actions">
-            <a href="write.html" class="button button-primary button-sm button-full">Write</a>
-          </div>
-        </div>
-      </div>
     </nav>
 
     <main class="write-main">
       <div class="container write-container">
         <div class="write-header">
           <h1 class="write-title">Create a New Post</h1>
-          <div class="write-actions">
-            <!-- <button class="button button-outline button-sm" id="save-draft-btn">Save Draft</button> -->
-            <!-- <button class="button button-primary button-sm" id="publish-btn">Publish</button> -->
-          </div>
         </div>
 
         <form class="write-form" id="blog-form">
@@ -192,35 +166,77 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom">
-          <p class="copyright">&copy; 2025 BlogSmith. All rights reserved.</p>
-          <div class="footer-legal">
-            <a href="#" class="footer-legal-link">Privacy Policy</a>
-            <a href="#" class="footer-legal-link">Terms of Service</a>
+   <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-column footer-branding">
+              <a href="/" class="footer-logo">
+                BlogSmith
+              </a>
+              <p class="footer-tagline">
+                Ideas that inspire, stories that matter. Join our community of writers and readers today.
+              </p>
+            </div>
+            
+            <div class="footer-column">
+              <h3 class="footer-column-title">Navigation</h3>
+              <ul class="footer-links">
+                <li><a href="/dashboard" class="footer-link">Home</a></li>
+                <li><a href="/articles" class="footer-link">Articles</a></li>
+                <li><a href="/explore" class="footer-link">Explore</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-column">
+              <h3 class="footer-column-title">Resources</h3>
+              <ul class="footer-links">
+                <li><a href="/explore#sect-1" class="footer-link">Writing Tips</a></li>
+                <li><a href="/explore#sect-2" class="footer-link">Style Guide</a></li>
+                <li><a href="/explore#sect-3" class="footer-link">Feature Guide</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-column">
+              <h3 class="footer-column-title">Connect</h3>
+              <ul class="footer-links">
+                <li>
+                  <a href="#" class="footer-link footer-link-with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span>hello@blogSmith.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="footer-link footer-link-with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <span>Twitter</span>
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#" class="footer-link footer-link-with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 BlogSmith. All rights reserved.</p>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
   </div>
-
-  <!-- <div class="modal" id="publish-modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title">Publish Post</h3>
-          <button class="modal-close" id="close-modal">×</button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to publish this post?</p>
-          <p>Once published, it will be visible to all readers.</p>
-        </div>
-        <div class="modal-footer">
-          <button class="button button-outline" id="cancel-publish">Cancel</button>
-          <button class="button button-primary" id="confirm-publish">Publish</button>
-        </div>
-      </div>
-    </div> -->
 
   <script src="newblog.js" defer></script>
 </body>

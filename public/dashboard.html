@@ -1,500 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlogSmith- Ideas that inspire, stories that matter</title>
-    <meta name="description" content="Discover thought-provoking articles, expert insights, and captivating stories from writers who are passionate about making a difference." />
-    <meta name="author" content="BlogSmith" />
 
-    <meta property="og:title" content="BlogSmith - Ideas that inspire, stories that matter" />
-    <meta property="og:description" content="Discover thought-provoking articles, expert insights, and captivating stories from writers who are passionate about making a difference." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlogSmith- Ideas that inspire, stories that matter</title>
+  <meta name="description"
+    content="Discover thought-provoking articles, expert insights, and captivating stories from writers who are passionate about making a difference." />
+  <meta name="author" content="BlogSmith" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-  </head>
+  <meta property="og:title" content="BlogSmith - Ideas that inspire, stories that matter" />
+  <meta property="og:description"
+    content="Discover thought-provoking articles, expert insights, and captivating stories from writers who are passionate about making a difference." />
 
-  <body>
-    <div id="root">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-content">
-            <div class="navbar-logo">
-              <h2 class="logo-text">BlogSmith</h2>
-            </div>
-            
-            <div class="navbar-menu">
-              <a href="" class="navbar-link" style="color: black;">Home</a>
-              <a href="/articles" class="navbar-link">Articles</a>
-              <a href="/explore" class="navbar-link">Explore</a>
-              <a href="#section4" class="navbar-link">About</a>
-            </div>
 
-            <div class="navbar-actions">
-              <button aria-label="Search" class="icon-button">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      width: 50%;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+    </style>
+</head>
+
+<body>
+  <div id="root">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <div class="navbar-logo">
+            <h2 class="logo-text">BlogSmith</h2>
+          </div>
+
+          <div class="navbar-menu">
+            <a href="" class="navbar-link" style="color: black;">Home</a>
+            <a href="/articles" class="navbar-link">Articles</a>
+            <a href="/explore" class="navbar-link">Explore</a>
+          </div>
+
+          <div class="navbar-actions">
+            <!-- <button aria-label="Search" class="icon-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.3-4.3"></path>
                 </svg>
-              </button>
-              <button class="button button-primary button-sm" id="logoutBtn">Logout</button>
-            </div>
-            
-            <div class="mobile-menu-toggle">
-              <button aria-label="Open menu" class="icon-button" id="menu-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                  <line x1="4" x2="20" y1="12" y2="12"></line>
-                  <line x1="4" x2="20" y1="6" y2="6"></line>
-                  <line x1="4" x2="20" y1="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
+              </button> -->
+            <button class="button button-primary button-sm" id="logoutBtn">Logout</button>
           </div>
         </div>
+      </div>
 
-        <div class="mobile-menu" id="mobile-menu">
-          <div class="mobile-menu-content">
-            <a href="#" class="mobile-menu-link">Home</a>
-            <a href="#" class="mobile-menu-link">Articles</a>
-            <a href="#" class="mobile-menu-link">Categories</a>
-            <a href="#" class="mobile-menu-link">About</a>
-            <div class="mobile-menu-actions">
-              <button aria-label="Search" class="icon-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.3-4.3"></path>
-                </svg>
-              </button>
-              <button class="button button-primary button-sm button-full">Logout</button>
-            </div>
-          </div>
-        </div>
-      </nav>
+    </nav>
 
-      <main>
-        <!-- Hero Section -->
-        <section class="hero">
-          <div class="container">
-            <div class="hero-content">
-              <div class="hero-text">
-                <h1 class="hero-title">
-                  Ideas that <span class="text-blue">inspire</span>, stories that <span class="text-blue">matter</span>
-                </h1>
-                <p class="hero-description">
-                  Discover thought-provoking articles, expert insights, and captivating stories from writers who are passionate about making a difference.
-                </p>
-                <div class="hero-buttons">
-                  <button class="button button-primary button-lg" id="read-blog-btn">Start Reading</button>
-                  <button class="button button-outline button-lg" id="write-blog-btn">✨ Start Weaving Your Words</button>
-                </div>
-              </div>
-              <div class="hero-image-container">
-                <div class="hero-image-wrapper">
-                  <img
-                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
-                    alt="Person writing in a notebook"
-                    class="hero-image"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Decorative elements -->
-          <div class="hero-blob hero-blob-1"></div>
-          <div class="hero-blob hero-blob-2"></div>
-        </section>
-
-        <!-- Featured Posts Section -->
-        <section class="featured-posts" id="section2" >
-          <div class="container">
-            <div class="section-header">
-              <h2 class="section-title">Featured Articles</h2>
-              <p class="section-description">
-                Discover our most popular and impactful stories
-              </p>
-            </div>
-            
-            <div class="post-grid">
-              <!-- Post Card 1 -->
-              <div class="post-card">
-                <div class="post-image-container">
-                  <img 
-                    src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                    alt="The Future of Remote Work and Digital Nomadism" 
-                    class="post-image"
-                  />
-                </div>
-                <div class="post-content">
-                  <div class="post-meta">
-                    <span class="post-badge">Work & Life</span>
-                    <span class="post-read-time">8 min read</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="#" class="post-link">The Future of Remote Work and Digital Nomadism</a>
-                  </h3>
-                  <p class="post-excerpt">
-                    Exploring how technology is reshaping our work environments and enabling location independence for modern professionals.
-                  </p>
-                  <div class="post-footer">
-                    <div class="post-author">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                      <span>Alex Morgan</span>
-                    </div>
-                    <div class="post-date">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-                        <line x1="16" x2="16" y1="2" y2="6"></line>
-                        <line x1="8" x2="8" y1="2" y2="6"></line>
-                        <line x1="3" x2="21" y1="10" y2="10"></line>
-                      </svg>
-                      <span>May 10, 2025</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Post Card 2 -->
-              <div class="post-card">
-                <div class="post-image-container">
-                  <img 
-                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                    alt="Mindfulness Practices for Busy Professionals" 
-                    class="post-image"
-                  />
-                </div>
-                <div class="post-content">
-                  <div class="post-meta">
-                    <span class="post-badge">Wellness</span>
-                    <span class="post-read-time">5 min read</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="#" class="post-link">Mindfulness Practices for Busy Professionals</a>
-                  </h3>
-                  <p class="post-excerpt">
-                    Simple techniques to incorporate mindfulness into your daily routine to improve focus, reduce stress, and enhance well-being.
-                  </p>
-                  <div class="post-footer">
-                    <div class="post-author">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                      <span>Jamie Lee</span>
-                    </div>
-                    <div class="post-date">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-                        <line x1="16" x2="16" y1="2" y2="6"></line>
-                        <line x1="8" x2="8" y1="2" y2="6"></line>
-                        <line x1="3" x2="21" y1="10" y2="10"></line>
-                      </svg>
-                      <span>May 8, 2025</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Post Card 3 -->
-              <div class="post-card">
-                <div class="post-image-container">
-                  <img 
-                    src="https://images.unsplash.com/photo-1523459178231-1a64e14ce5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                    alt="Sustainable Living: Small Changes, Big Impact" 
-                    class="post-image"
-                  />
-                </div>
-                <div class="post-content">
-                  <div class="post-meta">
-                    <span class="post-badge">Sustainability</span>
-                    <span class="post-read-time">6 min read</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="#" class="post-link">Sustainable Living: Small Changes, Big Impact</a>
-                  </h3>
-                  <p class="post-excerpt">
-                    Practical advice on adopting more sustainable habits that benefit both your everyday life and the planet.
-                  </p>
-                  <div class="post-footer">
-                    <div class="post-author">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                      <span>Taylor Rivers</span>
-                    </div>
-                    <div class="post-date">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-                        <line x1="16" x2="16" y1="2" y2="6"></line>
-                        <line x1="8" x2="8" y1="2" y2="6"></line>
-                        <line x1="3" x2="21" y1="10" y2="10"></line>
-                      </svg>
-                      <span>May 5, 2025</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="section-footer">
-              <a href="/articles" class="view-all">View all articles →</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- Categories Section -->
-        <section class="categories" id="section3">
-          <div class="container">
-            <div class="section-header">
-              <h2 class="section-title">Explore Topics</h2>
-              <p class="section-description">
-                Dive into content carefully curated for every interest
-              </p>
-            </div>
-            
-            <div class="categories-grid">
-              <!-- Category Card 1 -->
-              <div class="category-card">
-                <a href="/articles?category=technology" class="category-card-link">
-                  <div class="category-icon-wrapper category-icon-blue">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                  </div>
-                  <h3 class="category-title">Technology</h3>
-                  <p class="category-description">Latest tech trends, reviews, and digital innovation</p>
-                </a>
-              </div>
-
-              <!-- Category Card 2 -->
-              <div class="category-card">
-                <a href="/articles?category=lifestyle" class="category-card-link">
-                  <div class="category-icon-wrapper category-icon-green">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                  </div>
-                  <h3 class="category-title">Lifestyle</h3>
-                  <p class="category-description">Wellness, personal growth, and everyday inspiration</p>
-                </a>
-              </div>
-
-              <!-- Category Card 3 -->
-              <div class="category-card">
-                <a href="/articles?category=culture" class="category-card-link">
-                  <div class="category-icon-wrapper category-icon-purple">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                  </div>
-                  <h3 class="category-title">Culture</h3>
-                  <p class="category-description">Arts, entertainment, and societal perspectives</p>
-                </a>
-              </div>
-
-              <!-- Category Card 4 -->
-              <div class="category-card">
-                <a href="/articles?category=business" class="category-card-link">
-                  <div class="category-icon-wrapper category-icon-amber">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                      <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                    </svg>
-                  </div>
-                  <h3 class="category-title">Business</h3>
-                  <p class="category-description">Entrepreneurship, career insights, and workplace wisdom</p>
-                </a>
-              </div>
-
-              <!-- Category Card 5 -->
-              <div class="category-card">
-                <a href="/articles?category=events" class="category-card-link">
-                  <div class="category-icon-wrapper category-icon-red">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                      <line x1="16" y1="2" x2="16" y2="6"></line>
-                      <line x1="8" y1="2" x2="8" y2="6"></line>
-                      <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                  </div>
-                  <h3 class="category-title">Events</h3>
-                  <p class="category-description">Upcoming webinars, conferences, and community gatherings</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter">
-          <div class="container">
-            <div class="newsletter-content">
-              <div class="newsletter-text">
-                <h2 class="section-title">Stay in the loop</h2>
-                <p class="section-description">
-                  Subscribe to our newsletter to receive the latest articles, updates, and exclusive content directly in your inbox.
-                </p>
-              </div>
-              
-              <div class="newsletter-form-container">
-                <form class="newsletter-form">
-                  <div class="form-group">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="Enter your email"
-                      class="input"
-                    />
-                  </div>
-                  <button type="submit" class="button button-primary">
-                    Subscribe
-                  </button>
-                </form>
-                <p class="newsletter-disclaimer">
-                  We respect your privacy. No spam, ever.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about" id="section4">
-          <div class="container">
-            <div class="about-content">
-              <div class="about-image-container">
-                <div class="about-image-wrapper">
-                  <img
-                    src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                    alt="Workspace with laptop, coffee, and notebook"
-                    class="about-image"
-                  />
-                </div>
-              </div>
-              
-              <div class="about-text">
-                <h2 class="section-title">About BlogSmith</h2>
-                <p class="about-description">
-                  Founded in 2025, BlogSmith is a community of writers, thinkers, and creators sharing ideas that matter. Our mission is to provide a platform where diverse voices can thrive and readers can discover meaningful content that inspires, educates, and entertains.
-                </p>
-                <p class="about-description">
-                  We believe in the power of words to connect people, foster understanding, and drive positive change. Join our growing community of over 10,000 readers and 250 writers from around the world.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="footer">
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
         <div class="container">
-          <div class="footer-content">
-            <div class="footer-column footer-branding">
-              <a href="/" class="footer-logo">
-                BlogSmith
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1 class="hero-title">
+                Ideas that <span class="text-blue">inspire</span>, stories that <span class="text-blue">matter</span>
+              </h1>
+              <p class="hero-description">
+                Discover thought-provoking articles, expert insights, and captivating stories from writers who are
+                passionate about making a difference.
+              </p>
+              <div class="hero-buttons">
+                <button class="button button-primary button-lg" id="read-blog-btn">Start Reading</button>
+                <button class="button button-outline button-lg" id="write-blog-btn">✨ Start Weaving Your Words</button>
+              </div>
+            </div>
+            <div class="hero-image-container">
+              <div class="hero-image-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+                  alt="Person writing in a notebook" class="hero-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative elements -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+      </section>
+
+      <!-- Featured Posts Section -->
+      <section class="featured-posts" id="section2">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Featured Articles</h2>
+            <p class="section-description">
+              Discover our most popular and impactful stories
+            </p>
+          </div>
+
+          <div class="post-grid">
+            <!-- Post Card 1 -->
+            <div class="post-card">
+              <div class="post-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                  alt="The Future of Remote Work and Digital Nomadism" class="post-image" />
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-badge">Work & Life</span>
+                  <span class="post-read-time">8 min read</span>
+                </div>
+                <h3 class="post-title">
+                  <a href="#" class="post-link" onclick="visi('6828e6f9f8f24f9613c969b0')">The Future of Remote Work and Digital Nomadism</a>
+                </h3>
+                <p class="post-excerpt">
+                  Exploring how technology is reshaping our work environments and enabling location independence for
+                  modern professionals.
+                </p>
+                <div class="post-footer">
+                  <div class="post-author">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Alex Morgan</span>
+                  </div>
+                  <div class="post-date">
+                    <span>May 10, 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post Card 2 -->
+            <div class="post-card">
+              <div class="post-image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                  alt="Mindfulness Practices for Busy Professionals" class="post-image" />
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-badge">Wellness</span>
+                  <span class="post-read-time">5 min read</span>
+                </div>
+                <h3 class="post-title">
+                  <a href="#" class="post-link" onclick="visi('6828e6f9f8f24f9613c969b0')">Mindfulness Practices for Busy Professionals</a>
+                </h3>
+                <p class="post-excerpt">
+                  Simple techniques to incorporate mindfulness into your daily routine to improve focus, reduce stress,
+                  and enhance well-being.
+                </p>
+                <div class="post-footer">
+                  <div class="post-author">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Jamie Lee</span>
+                  </div>
+                  <div class="post-date">
+                    <span>May 8, 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post Card 3 -->
+            <div class="post-card">
+              <div class="post-image-container">
+                <img
+                  src="https://upes-production-cvb3e7frghdda0a4.z01.azurefd.net/drupal-data/2024-08/renewable-and-sustainable-neergy-1.jpeg"
+                  alt="Sustainable Living: Small Changes, Big Impact" class="post-image" />
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-badge">Sustainability</span>
+                  <span class="post-read-time">6 min read</span>
+                </div>
+                <h3 class="post-title">
+                  <a href="#" class="post-link" onclick="visi('6828e6f9f8f24f9613c969b0')">Sustainable Living: Small Changes, Big Impact</a>
+                </h3>
+                <p class="post-excerpt">
+                  Practical advice on adopting more sustainable habits that benefit both your everyday life and the
+                  planet.
+                </p>
+                <div class="post-footer">
+                  <div class="post-author">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="icon">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Taylor Rivers</span>
+                  </div>
+                  <div class="post-date">
+                    <span>May 5, 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="preview-modal" class="modal">
+            <div class="modal-content">
+              <span id="close-modal" class="close">&times;</span>
+              <h2 id="preview-title"></h2>
+              <div id="preview-content"></div>
+            </div>
+          </div>
+          <div class="section-footer">
+            <a href="/articles" class="view-all">View all articles →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section class="categories" id="section3">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Explore Topics</h2>
+            <p class="section-description">
+              Dive into content carefully curated for every interest
+            </p>
+          </div>
+
+          <div class="categories-grid">
+            <!-- Category Card 1 -->
+            <div class="category-card">
+              <a href="/articles?category=technology" class="category-card-link">
+                <div class="category-icon-wrapper category-icon-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                </div>
+                <h3 class="category-title">Technology</h3>
+                <p class="category-description">Latest tech trends, reviews, and digital innovation</p>
               </a>
-              <p class="footer-tagline">
-                Ideas that inspire, stories that matter. Join our community of writers and readers today.
-              </p>
             </div>
-            
-            <div class="footer-column">
-              <h3 class="footer-column-title">Navigation</h3>
-              <ul class="footer-links">
-                <li><a href="#" class="footer-link">Home</a></li>
-                <li><a href="/articles" class="footer-link">Articles</a></li>
-                <li><a href="#section3" class="footer-link">Categories</a></li>
-                <li><a href="#section4" class="footer-link">About</a></li>
-              </ul>
+
+            <!-- Category Card 2 -->
+            <div class="category-card">
+              <a href="/articles?category=lifestyle" class="category-card-link">
+                <div class="category-icon-wrapper category-icon-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <h3 class="category-title">Lifestyle</h3>
+                <p class="category-description">Wellness, personal growth, and everyday inspiration</p>
+              </a>
             </div>
-            
-            <!-- <div class="footer-column">
-              <h3 class="footer-column-title">Resources</h3>
-              <ul class="footer-links">
-                <li><a href="#" class="footer-link">Writing Tips</a></li>
-                <li><a href="#" class="footer-link">Style Guide</a></li>
-                <li><a href="#" class="footer-link">FAQs</a></li>
-                <li><a href="#" class="footer-link">Contact Us</a></li>
-              </ul>
-            </div> -->
-            
-            <div class="footer-column">
-              <h3 class="footer-column-title">Connect</h3>
-              <ul class="footer-links">
-                <li>
-                  <a href="#" class="footer-link footer-link-with-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-                    <span>hello@blogSmith.com</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="footer-link footer-link-with-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    <span>Twitter</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="footer-link footer-link-with-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    <span>Instagram</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="footer-link footer-link-with-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    <span>LinkedIn</span>
-                  </a>
-                </li>
-              </ul>
+
+            <!-- Category Card 3 -->
+            <div class="category-card">
+              <a href="/articles?category=culture" class="category-card-link">
+                <div class="category-icon-wrapper category-icon-purple">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="category-title">Culture</h3>
+                <p class="category-description">Arts, entertainment, and societal perspectives</p>
+              </a>
             </div>
-          </div>
-          
-          <div class="footer-bottom">
-            <p class="copyright">&copy; 2025 BlogSmith. All rights reserved.</p>
-            <div class="footer-legal">
-              <a href="/privacy.html" class="footer-legal-link">Privacy Policy</a>
-              <a href="#" class="footer-legal-link">Terms of Service</a>
+
+            <!-- Category Card 4 -->
+            <div class="category-card">
+              <a href="/articles?category=business" class="category-card-link">
+                <div class="category-icon-wrapper category-icon-amber">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                  </svg>
+                </div>
+                <h3 class="category-title">Business</h3>
+                <p class="category-description">Entrepreneurship, career insights, and workplace wisdom</p>
+              </a>
+            </div>
+
+            <!-- Category Card 5 -->
+            <div class="category-card">
+              <a href="/articles?category=events" class="category-card-link">
+                <div class="category-icon-wrapper category-icon-red">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <h3 class="category-title">Events</h3>
+                <p class="category-description">Upcoming webinars, conferences, and community gatherings</p>
+              </a>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script src="script.js"></script>
-  </body>
+      </section>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter">
+        <div class="container">
+          <div class="newsletter-content">
+            <div class="newsletter-text">
+              <h2 class="section-title">Stay in the loop</h2>
+              <p class="section-description">
+                Subscribe to our newsletter to receive the latest articles, updates, and exclusive content directly in
+                your inbox.
+              </p>
+            </div>
+
+            <div class="newsletter-form-container">
+              <form class="newsletter-form">
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email address</label>
+                  <input id="email" name="email" type="email" required placeholder="Enter your email" class="input" />
+                </div>
+                <button type="submit" class="button button-primary">
+                  Subscribe
+                </button>
+              </form>
+              <p class="newsletter-disclaimer">
+                We respect your privacy. No spam, ever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about" id="section4">
+        <div class="container">
+          <div class="about-content">
+            <div class="about-image-container">
+              <div class="about-image-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                  alt="Workspace with laptop, coffee, and notebook" class="about-image" />
+              </div>
+            </div>
+
+            <div class="about-text">
+              <h2 class="section-title">About BlogSmith</h2>
+              <p class="about-description">
+                Founded in 2025, BlogSmith is a community of writers, thinkers, and creators sharing ideas that matter.
+                Our mission is to provide a platform where diverse voices can thrive and readers can discover meaningful
+                content that inspires, educates, and entertains.
+              </p>
+              <p class="about-description">
+                We believe in the power of words to connect people, foster understanding, and drive positive change.
+                Join our growing community of over 10,000 readers and 250 writers from around the world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column footer-branding">
+            <a href="/" class="footer-logo">
+              BlogSmith
+            </a>
+            <p class="footer-tagline">
+              Ideas that inspire, stories that matter. Join our community of writers and readers today.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Navigation</h3>
+            <ul class="footer-links">
+              <li><a href="/dashboard" class="footer-link">Home</a></li>
+              <li><a href="/articles" class="footer-link">Articles</a></li>
+              <li><a href="/explore" class="footer-link">Explore</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Resources</h3>
+            <ul class="footer-links">
+              <li><a href="/explore#sect-1" class="footer-link">Writing Tips</a></li>
+              <li><a href="/explore#sect-2" class="footer-link">Style Guide</a></li>
+              <li><a href="/explore#sect-3" class="footer-link">Feature Guide</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Connect</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link footer-link-with-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <span>hello@blogSmith.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="footer-link footer-link-with-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                  <span>Twitter</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link footer-link-with-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2025 BlogSmith. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="script.js"></script>
+  <script>
+    async function visi(blogId) {
+      try {
+        const response = await fetch(`/api/blogs/get/${blogId}`);
+        const data = await response.json();
+        const blog = data.blog;
+        const title = blog.title;
+        const content = blog.content;
+
+        document.getElementById('preview-title').textContent = title;
+        document.getElementById('preview-content').innerText = content;
+
+        document.getElementById('preview-modal').style.display = 'block';
+
+        document.getElementById('close-modal')?.addEventListener('click', () => {
+          document.getElementById('preview-modal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+          const modal = document.getElementById('preview-modal');
+          if (e.target === modal) {
+            modal.style.display = 'none';
+          }
+        });
+      } catch (err) {
+        console.error("Error opening blog:", err);
+      }
+    }
+
+  </script>
+</body>
+
 </html>
