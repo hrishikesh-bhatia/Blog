@@ -6,7 +6,9 @@ const blogroutes = require('./routes/blogroutes');
 const requireAuth = require('./middleware/authmiddleware');  // Import the requireAuth middleware
 const path = require('path');
 
-mongoose.connect('mongodb://localhost:27017/blogsmith')
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
   })
